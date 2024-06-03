@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import SwipperSlider from "./SwipperSlider";
+import Faq from "./Faq";
 
 const Home = () => {
 
@@ -12,6 +13,7 @@ const Home = () => {
     return (
         <div>
             <SwipperSlider></SwipperSlider>
+            <Faq></Faq>
         </div>
     );
 };

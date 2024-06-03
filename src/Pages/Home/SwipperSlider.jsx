@@ -44,7 +44,7 @@ const SwipperSlider = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <img className='h-[380px] lg:h-[600px] object-cover rounded-2xl w-full ' src="https://i.ibb.co/5M2w7Hk/pexels-fauxels-3184360.jpg" alt="property-image" />
+                        <img className='h-[380px] lg:h-[600px] object-cover rounded-2xl w-full ' src="https://i.ibb.co/VTjmBv1/pexels-fauxels-3184292.jpg" alt="property-image" />
                         <div className='absolute flex items-center space-y-7 h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)] w-full rounded-xl'>
                             <SliderContent></SliderContent>
                         </div>
@@ -52,7 +52,7 @@ const SwipperSlider = () => {
                 </SwiperSlide>
                 <SwiperSlide>
                     <div>
-                        <img className='h-[380px] lg:h-[600px] object-cover bg-blend-overlay rounded-2xl w-full' src="https://i.ibb.co/5M2w7Hk/pexels-fauxels-3184360.jpg" alt="property-image" />
+                        <img className='h-[380px] lg:h-[600px] object-cover bg-blend-overlay rounded-2xl w-full' src="https://i.ibb.co/BBDgg34/pexels-suissounet-1320815.jpg" alt="property-image" />
                         <div className='absolute flex items-center space-y-7 h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)] w-full rounded-xl'>
                             <SliderContent></SliderContent>
                         </div>
