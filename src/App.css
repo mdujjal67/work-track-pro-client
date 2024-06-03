@@ -1,6 +1,6 @@
 .isActive{
   /* border: 1px solid #23BE0A; */
-  border-bottom: 2px solid #00396a;
+  border-bottom: 2px solid orange;
   color: black;
   border-radius: 4px;
   /* background-color: #00396a; */
@@ -8,7 +8,8 @@
 
 @media (prefers-color-scheme: dark) {
   .gray-on-dark-mode {
-      color: rgb(176, 175, 175);
+      /* color: rgb(176, 175, 175); */
+      color: orange;
   }
 }
 @media (prefers-color-scheme: white) {
@@ -18,13 +19,13 @@
 }
 @media (prefers-color-scheme: dark) {
   .blue-border-dark-mode {
-      border-bottom: 2px solid #076ec8;
+      border-bottom: 2px solid orange;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   .black-dark-mode {
-      border-bottom: 2px solid #076ec8;
+      border-bottom: 2px solid orange;
   }
 }
 
