@@ -1,0 +1,42 @@
+.isActive{
+  /* border: 1px solid #23BE0A; */
+  border-bottom: 2px solid #00396a;
+  color: black;
+  border-radius: 4px;
+  /* background-color: #00396a; */
+}
+
+@media (prefers-color-scheme: dark) {
+  .gray-on-dark-mode {
+      color: rgb(176, 175, 175);
+  }
+}
+@media (prefers-color-scheme: white) {
+  .black-on-white-mode {
+      color: rgb(52, 52, 52);
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .blue-border-dark-mode {
+      border-bottom: 2px solid #076ec8;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .black-dark-mode {
+      border-bottom: 2px solid #076ec8;
+  }
+}
+
+.menu-item{
+  padding: 13px 16px;
+  transition: all .3s ease;
+  /* border-radius: 8px; */
+}
+.menu-item:hover{
+  color: white;
+  border-radius: 8px;
+  border-bottom: 2px solid #805ad5;
+  background-color: #00396a;
+
+}
