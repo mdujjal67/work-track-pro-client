@@ -21,7 +21,7 @@ const Testimonials = () => {
     }, [])
     return (
         <section className="my-[100px] container mx-auto">
-            <h1 className='text-center text-3xl font-bold'>Testimonials</h1>
+            <h1 className='text-center text-2xl font-bold sm:text-4xl'>Testimonials</h1>
             <p className='text-center mt-4 mb-10'>What our client say</p>
             <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
 
@@ -29,14 +29,13 @@ const Testimonials = () => {
                     testimonials.map(testimonial => <SwiperSlide
                         key={testimonial._id}
                         testimonial={testimonial}>
-                        <div className="w-[1080px] mx-auto">
-    
+                        <div className="container mx-auto">
                             <Rating
                                 style={{ maxWidth: 180 }}
                                 value={testimonial.rating}
                                 readOnly className="mx-auto mb-4" />
-                            <p>{testimonial.details}</p>
-                            <h2 className="text-2xl font-semibold text-[#CD9003] text-center pt-2 uppercase">{testimonial.name}</h2>
+                            <p className='w-[280px] md:w-[90%] text-center mx-auto'>{testimonial.details}</p>
+                            <h2 className="text-xl font-semibold text-[#CD9003] text-center pt-2 uppercase">{testimonial.name}</h2>
                         </div>
                     </SwiperSlide>)
                 }
