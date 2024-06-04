@@ -3,6 +3,7 @@ import SwipperSlider from "./SwipperSlider";
 import Faq from "./Faq";
 import ValuesAndCulture from "./ValuesAndCulture";
 import Services from "./Services";
+import Testimonials from "./Testimonial";
 
 const Home = () => {
 
@@ -16,6 +17,7 @@ const Home = () => {
         <div>
             <SwipperSlider></SwipperSlider>
             <Services></Services>
+            <Testimonials></Testimonials>
             <Faq></Faq>
             <ValuesAndCulture></ValuesAndCulture>
         </div>

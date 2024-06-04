@@ -15,10 +15,10 @@ const Services = () => {
     }, []);
 
     return (
-        <div className="container mx-auto mt-[100px]">
+        <div className="container mx-auto mt-[100px] py-14 bg-gray-50">
             <h1 className="text-3xl font-bold text-center  ">Our Services</h1>
             <h2 className="text-center pb-10 mt-4">Explore what services we provide to our clients</h2>
-            <div className="grid grid-cols-3 gap-6 shadow-lg pb-14 bg-gray-50">
+            <div className="grid grid-cols-3 gap-6 shadow-lg">
                 {
                     services.map((service) => <div key={service._id} className=" container mx-auto mt-auto flex-grow">
                         <div className=" rounded-md shadow-md relative p-4 lg:p-0 ">
