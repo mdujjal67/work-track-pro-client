@@ -47,15 +47,15 @@ const NavBar = () => {
 
     const navItems = <>
         <li>
-            <NavLink className={({ isActive }) => isActive ? 'isActive hover:text-orange-500 hover:bg-white gray-on-dark-mode blue-border-dark-mode' : 'hover:text-orange-500 hover:bg-white'} to='/'>Home</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'isActive hover:text-orange-500 hover:bg-white -mode ' : 'hover:text-orange-500 hover:bg-white'} to='/'>Home</NavLink>
         </li>
 
         <li>
-            <NavLink className={({ isActive }) => isActive ? 'isActive hover:text-orange-500 hover:bg-white mt-1 lg:mt-0 lg:ml-2 gray-on-dark-mode blue-border-dark-mode' : 'hover:text-orange-500 hover:bg-white mt-1 lg:mt-0 lg:ml-2'} to='/create-assignment'>Dashboard</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'isActive hover:text-orange-500 hover:bg-white mt-1 lg:mt-0 lg:ml-2 gray-on-dark-mode blue-border-dark-mode' : 'hover:text-orange-500 hover:bg-white mt-1 lg:mt-0 lg:ml-2'} to='/dashboard'>Dashboard</NavLink>
         </li>
 
         <li>
-            <NavLink className={({ isActive }) => isActive ? 'isActive hover:text-orange-500 hover:bg-white my-1 lg:my-0 lg:mx-2 gray-on-dark-mode blue-border-dark-mode' : 'hover:text-orange-500 hover:bg-white my-1 lg:my-0 lg:mx-2'} to='/assignment'>Contact Us</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'isActive hover:text-orange-500 hover:bg-white my-1 lg:my-0 lg:mx-2 gray-on-dark-mode blue-border-dark-mode' : 'hover:text-orange-500 hover:bg-white my-1 lg:my-0 lg:mx-2'} to='/contact-us'>Contact Us</NavLink>
         </li>
 
         {/* {

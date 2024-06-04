@@ -1,8 +1,8 @@
 .isActive{
   /* border: 1px solid #23BE0A; */
   border-bottom: 2px solid orange;
-  color: black;
-  border-radius: 4px;
+  /* color: black; */
+  border-radius: 3px;
   /* background-color: #00396a; */
 }
 
@@ -14,7 +14,8 @@
 }
 @media (prefers-color-scheme: white) {
   .black-on-white-mode {
-      color: rgb(52, 52, 52);
+      /* color: rgb(52, 52, 52); */
+      color:orange
   }
 }
 @media (prefers-color-scheme: dark) {

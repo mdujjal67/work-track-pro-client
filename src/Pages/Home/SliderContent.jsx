@@ -5,7 +5,7 @@ import 'animate.css';
 const SliderContent = () => {
     return (
         <div className="animate__animated animate__slideInLeft">
-            <div className="lg:w-3/5 lg:pl-14 pl-5 md:pl-5 pr-3">
+            <div className="lg:w-3/5 lg:pl-14 pl-10 pr-3">
                 <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl text-white">Climb to Success with WorkTrackPro!</h1>
                 <p className="text-white py-7 text-[14px] lg:w-[550px]">Transform Your Workflow, Enhance Productivity,
                     and Achieve Your Goals. Join the Community of Successful Professionals with WorkTrackPro!</p>

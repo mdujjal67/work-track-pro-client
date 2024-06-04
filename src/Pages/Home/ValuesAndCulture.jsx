@@ -6,7 +6,7 @@ const ValuesAndCulture = () => {
             <section id="values-culture" className="py-12 bg-gray-100 mt-[100px]">
                 <div className="container mx-auto px-8">
                     <div className="text-center">
-                        <h2 className="text-3xl font-semibold text-gray-800">Our Values and Culture</h2>
+                        <h2 className="text-3xl font-bold text-gray-800">Our Values and Culture</h2>
                         <p className="mt-2 text-gray-600">Discover what drives us and defines our workplace.</p>
                     </div>
                     <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">

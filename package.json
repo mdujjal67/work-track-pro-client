@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.40.0",
     "animate.css": "^4.1.1",
+    "axios": "^1.7.2",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.4",
     "react": "^18.2.0",
@@ -23,6 +25,7 @@
     "swiper": "^11.1.4"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.35.6",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
