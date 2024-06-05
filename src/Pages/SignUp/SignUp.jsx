@@ -31,7 +31,7 @@ const SignUp = () => {
                             salary: data.salary,
                             designation: data.designation,
                             role: data.role,
-                            isVerified : 'pending'
+                            isVerified : 'Pending'
                         };
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
@@ -85,7 +85,8 @@ const SignUp = () => {
                                     <span className="label-text">Create Password</span>
                                 </label>
                                 <input {...register("password", { required: true, pattern: /(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,}/ })} type={showPassword ? "text" : "password"} name="password" placeholder="Password" className="input input-bordered" />
-                                <button className="relative">
+                                {/* password show toggle button */}
+                                <button type="button" className="relative">
                                     <span className="absolute right-4 -top-8" onClick={() => setShowPassword(!showPassword)}>
                                         {showPassword ? <FaEye /> : <FaEyeSlash />}
                                     </span>
@@ -143,12 +144,12 @@ const SignUp = () => {
                                 {errors.photoURL && <span className="text-red-500">Photo URL is required</span>}
                             </div>
 
-                            <p className=" text-center sm:px-6 dark:text-gray-600 col-span-2 ">Already have an account?
-                                <Link to="/login" rel="noopener noreferrer" className="underline  hover:text-orange-500 ml-1">Login</Link>
+                            <p className=" text-center sm:px-6 dark:text-gray-600 col-span-2 text-[14px]">Already have an account?
+                                <Link to="/login" rel="noopener noreferrer" className="underline  hover:text-[#00a1ea] ml-1">Login</Link>
                             </p>
 
                             <div className="form-control mt-6 col-span-2">
-                                <input type="submit" className="btn bg-orange-500 text-white w-full" value="Sign Up" />
+                                <input type="submit" className="btn bg-[#00a1ea] text-white w-full" value="Sign Up" />
                             </div>
                         </form>
 

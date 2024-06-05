@@ -11,7 +11,7 @@ const SliderContent = () => {
                     and Achieve Your Goals. Join the Community of Successful Professionals with WorkTrackPro!</p>
                 <a href="#services">
                     <div className="relative flex">
-                            <button className="pl-4 pr-10 py-2 text-white bg-orange-500 hover:bg-orange-600 hover:opacity-90 rounded-[8px]">Explore More</button>
+                            <button className="pl-4 pr-10 py-2 text-white bg-[#00a1ea] hover:bg-[#00a1eaCC] hover:opacity-90 rounded-[8px]">Explore More</button>
                         <FaCircleArrowRight className="text-white absolute top-[13px] left-[125px] hover:rotate-90" />
                     </div>
                 </a>

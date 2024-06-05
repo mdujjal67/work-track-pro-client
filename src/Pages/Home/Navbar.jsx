@@ -17,15 +17,15 @@ const Navbar = () => {
 
     const navOptions = <>
         <li>
-            <NavLink className={({ isActive }) => isActive ? 'isActive hover:text-orange-500 hover:bg-white -mode ' : 'hover:text-orange-500 hover:bg-white'} to='/'>Home</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'isActive hover:text-[#00a1ea] hover:bg-white bg-white border-b-2 border-[#00a1ea] rounded-[3px] text-[#00a1ea]' : 'hover:text-[#00a1ea] hover:bg-white'} to='/'>Home</NavLink>
         </li>
 
         <li>
-            <NavLink className={({ isActive }) => isActive ? 'isActive hover:text-orange-500 hover:bg-white mt-1 lg:mt-0 lg:ml-2 gray-on-dark-mode blue-border-dark-mode' : 'hover:text-orange-500 hover:bg-white mt-1 lg:mt-0 lg:ml-2'} to='/dashboard'>Dashboard</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'isActive hover:text-[#00a1ea] hover:bg-white mt-1 lg:mt-0 lg:ml-2 border-b-2 border-[#00a1ea] rounded-[3px] text-[#00a1ea] ' : 'hover:text-[#00a1ea] hover:bg-white mt-1 lg:mt-0 lg:ml-2'} to='/dashboard'>Dashboard</NavLink>
         </li>
 
         <li>
-            <NavLink className={({ isActive }) => isActive ? 'isActive hover:text-orange-500 hover:bg-white my-1 lg:my-0 lg:mx-2 gray-on-dark-mode blue-border-dark-mode' : 'hover:text-orange-500 hover:bg-white my-1 lg:my-0 lg:mx-2'} to='/contact-us'>Contact Us</NavLink>
+            <NavLink className={({ isActive }) => isActive ? 'isActive hover:text-[#00a1ea] hover:bg-white my-1 lg:my-0 lg:mx-2 border-b-2 border-[#00a1ea] rounded-[3px] text-[#00a1ea] ' : 'hover:text-[#00a1ea] hover:bg-white my-1 lg:my-0 lg:mx-2'} to='/contact-us'>Contact Us</NavLink>
         </li>
         <li>
             {/* <Link to='/dashboard/cart'>
@@ -45,7 +45,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="">
+        <div className="container mx-auto">
             <div className="navbar bg-base-400 pb-12 flex justify-between ">
                 <div className="navbar-start">
                     <div className="dropdown block lg:hidden z-50">
@@ -96,9 +96,9 @@ const Navbar = () => {
                     {
                         user?.email ? '' :
                             <div className="flex gap-2">
-                                <button className="menu text-[14px] lg:text-[16px] px-1 lg:mr-4 bg-[#00396a] rounded-lg text-white hover:bg-gray-200 hover:text-gray-700"><Link to="/login">Login</Link></button>
+                                <button className="menu text-[14px] lg:text-[16px] px-1 lg:mr-2 bg-[#00a1ea] hover:bg-gray-200 hover:text-gray-700 rounded-lg text-white "><Link to="/login">Login</Link></button>
 
-                                <button className="menu px-1 text-[14px] lg:text-[16px] bg-[#00396a] rounded-lg text-white hover:bg-gray-200 hover:text-gray-700"><Link to="/sign-up">Sign Up</Link></button>
+                                <button className="menu px-1 text-[14px] lg:text-[16px] bg-[#00a1ea] rounded-lg text-white hover:bg-gray-200 hover:text-gray-700"><Link to="/sign-up">Sign Up</Link></button>
                             </div>
                     }
                 </div>

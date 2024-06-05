@@ -5,9 +5,11 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import GoogleLogin from '../../GoogleLogin/GoogleLogin';
 import toast from 'react-hot-toast';
+import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 
 const Login = () => {
-    const [loginError, setLoginError] = useState('')
+    const [loginError, setLoginError] = useState('');
+    const [showPassword, setShowPassword] = useState(false)
 
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -80,22 +82,28 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                        <input type={showPassword ? "text" : "password"} name="password" placeholder="password" className="input input-bordered" required />
+                        {/* password show toggle button */}
+                            <button type="button" className="relative" href="#">
+                                <span className="absolute right-4 -top-8" onClick={() => setShowPassword(!showPassword)}>
+                                    {showPassword ? <FaEye /> : <FaEyeSlash />}
+                                </span>
+                            </button>
                         <div>
-                                    {
-                                        loginError && <p className="text-[12px] text-red-500">{loginError}</p>
-                                    }
-                                </div>
+                            {
+                                loginError && <p className="text-[12px] text-red-500">{loginError}</p>
+                            }
+                        </div>
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                     </div>
-                    <p className=" text-center sm:px-6 dark:text-gray-600">Do not have an account?
-                        <Link to="/sign-up" rel="noopener noreferrer" href="#" className="underline dark:text-gray-800 hover:text-orange-500 ml-1">Sign up</Link>
+                    <p className=" text-center text-[14px] sm:px-6 dark:text-gray-600">Do not have an account?
+                        <Link to="/sign-up" rel="noopener noreferrer" href="#" className="underline dark:text-gray-800 hover:text-[#00a1ea] ml-1 ]">Sign up</Link>
                     </p>
 
                     <div className="form-control mt-6">
-                        <input type="submit" className="btn bg-orange-500 text-white" value="Login" />
+                        <input type="submit" className="btn bg-[#00a1ea] text-white" value="Login" />
                     </div>
                 </form>
                 <div className="flex items-center pt-4 space-x-1">

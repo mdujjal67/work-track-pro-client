@@ -30,7 +30,7 @@ const Services = () => {
                                     <p className="dark:text-gray-800">{service.description.substring(0, 135)}...</p>
                                 </div>
                                 <Link to={``}>
-                                    <button className="btn flex items-center justify-center -mt-3 p-3 font-semibold tracking-wide rounded-lg dark:bg-orange-500 dark:text-gray-50 hover:text-black hover:bg-gray-300 transform transition-transform duration-300 mx-auto">View Details</button>
+                                    <button className="btn flex items-center justify-center -mt-3 p-3 font-semibold tracking-wide rounded-lg dark:bg-[#00a1ea] dark:text-gray-50 hover:text-black hover:bg-gray-300 transform transition-transform duration-300 mx-auto">View Details</button>
                                 </Link>
 
                             </div>

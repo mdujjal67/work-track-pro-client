@@ -1,14 +1,14 @@
-import { FaTrashAlt } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa6";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { MdDangerous } from "react-icons/md";
+import Swal from "sweetalert2";
 
 const AllEmployee = () => {
 
     const axiosSecure = useAxiosSecure();
 
-    const { data: users = [] } = useQuery({
+    const {refetch, data: users = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/users')
@@ -16,11 +16,41 @@ const AllEmployee = () => {
         }
     });
 
-    const employees = users.filter(employee => employee.role !== 'Admin');
+    const employees = users.filter(employee => employee.role !== 'Admin' && employee.isVerified !== '');
 
+    const handleMakeHR = user => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: `${user.name} will be an HR!`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, make HR!"
+        })
+            .then(result => {
+                if (result.isConfirmed) {
+                    axiosSecure.patch(`/users/admin/${user._id}`)
+                        .then(res => {
+                            console.log(res.data)
+                            if (res.data.modifiedCount > 0) {
+                                refetch();
+                                Swal.fire({
+                                    position: "top-center",
+                                    icon: "success",
+                                    title: `${user.name} is an HR Now!`,
+                                    showConfirmButton: false,
+                                    timer: 2000
+                                });
+                            }
+                        })
+                }
+            })
+
+    }
 
     return (
-        <div>
+        <div className="container mx-auto">
             <div className="flex justify-evenly my-4">
                 <h3 className="text-3xl font-bold my-8">Employees:</h3>
             </div>
@@ -45,13 +75,13 @@ const AllEmployee = () => {
                                 <td>{employee.name}</td>
                                 <td>{employee.designation}</td>
                                 <td>
-                                    {employee?.role === 'HR' ? 'HR' : <button  className="btn btn-ghost btn-sm  bg-orange-500">
+                                    {employee?.role === 'HR' ? 'HR' : <button onClick={handleMakeHR}  className="btn btn-ghost btn-sm  bg-orange-500">
                                         <FaUsers className="text-white text-lg"></FaUsers>
                                     </button>}
                                 </td>
                                 <th>
                                     <button className="btn btn-ghost btn-sm bg-red-500" >
-                                        <MdDangerous className="text-white text-lg"></MdDangerous>
+                                        <MdDangerous className="text-white text-xl"></MdDangerous>
                                     </button>
                                 </th>
                             </tr>)

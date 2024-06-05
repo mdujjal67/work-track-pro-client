@@ -79,7 +79,7 @@ const ContactUs = () => {
                             <span className="">Message</span>
                             <textarea rows="5" name="message" placeholder="Your Message" required className="block w-full rounded-md focus:ring focus:ring-opacity-75 focus:dark:ring-violet-600 dark:bg-gray-200 pl-3 pt-3 mt-2"></textarea>
                         </label>
-                        <input type="submit" name="submit" value="Send" className="btn btn-block bg-orange-500 text-white hover:text-black" />
+                        <input type="submit" name="submit" value="Send" className="btn btn-block bg-[#00a1ea] text-white hover:text-black" />
                     </form>
                 </div>
             </section>
