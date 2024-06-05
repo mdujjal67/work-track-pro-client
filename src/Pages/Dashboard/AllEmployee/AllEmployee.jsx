@@ -18,10 +18,11 @@ const AllEmployee = () => {
 
     const employees = users.filter(employee => employee.role !== 'Admin' && employee.isVerified !== '');
 
-    const handleMakeHR = user => {
+    const handleMakeHR = employee => {
+        console.log("User:", employee);
         Swal.fire({
             title: "Are you sure?",
-            text: `${user.name} will be an HR!`,
+            text: `${employee.name} will be an HR!`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
@@ -30,7 +31,7 @@ const AllEmployee = () => {
         })
             .then(result => {
                 if (result.isConfirmed) {
-                    axiosSecure.patch(`/users/admin/${user._id}`)
+                    axiosSecure.patch(`/users/admin/${employee._id}`)
                         .then(res => {
                             console.log(res.data)
                             if (res.data.modifiedCount > 0) {
@@ -38,7 +39,7 @@ const AllEmployee = () => {
                                 Swal.fire({
                                     position: "top-center",
                                     icon: "success",
-                                    title: `${user.name} is an HR Now!`,
+                                    title: `${employee.name} is an HR Now!`,
                                     showConfirmButton: false,
                                     timer: 2000
                                 });
@@ -75,7 +76,7 @@ const AllEmployee = () => {
                                 <td>{employee.name}</td>
                                 <td>{employee.designation}</td>
                                 <td>
-                                    {employee?.role === 'HR' ? 'HR' : <button onClick={handleMakeHR}  className="btn btn-ghost btn-sm  bg-orange-500">
+                                    {employee?.role === 'HR' ? 'HR' : <button onClick={() =>handleMakeHR(employee)}  className="btn btn-ghost btn-sm  bg-[#00a1ea]">
                                         <FaUsers className="text-white text-lg"></FaUsers>
                                     </button>}
                                 </td>

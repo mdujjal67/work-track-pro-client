@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoutes";
 import AllEmployee from "../Pages/Dashboard/AllEmployee/AllEmployee";
 import AdminRoute from "./AdminRoutes";
 import Messages from "../Pages/Dashboard/Messages/Messages";
+import WorkSheet from "../Pages/Dashboard/WorkSheet/WorkSheet";
 
 
 const router = createBrowserRouter([
@@ -62,6 +63,12 @@ const router = createBrowserRouter([
                 <Messages></Messages>
             </AdminRoute>
           },
+          
+        //   employee routes
+        {
+            path:'work-sheet',
+            element: <WorkSheet></WorkSheet>
+        }
         ]
       }
   ]);
