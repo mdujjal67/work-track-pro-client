@@ -37,7 +37,8 @@ const GoogleLogin = () => {
                     role: 'Employee',
                     bank_account_no: '',
                     salary: '',
-                    designation: '',
+                    designation: 'Executive',
+                    isVerified : 'pending'
                 }
                 axiosPublic.post('/users', userInfo)
                     .then(res => {

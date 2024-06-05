@@ -1,11 +1,13 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 // import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import GoogleLogin from '../../GoogleLogin/GoogleLogin';
+import toast from 'react-hot-toast';
 
 const Login = () => {
+    const [loginError, setLoginError] = useState('')
 
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -18,6 +20,8 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        setLoginError('');
 
         signIn(email, password)
             .then(result => {
@@ -34,6 +38,11 @@ const Login = () => {
 
                 navigate(from, { replace: true });
             })
+            .catch((error) => {
+                console.log(error)
+                setLoginError('Wrong Email ID or Password! Please enter correct information.')
+                toast.error('Please try again!');
+            });
     };
 
     // const [disabled, setDisabled] = useState(true)
@@ -72,6 +81,11 @@ const Login = () => {
                             <span className="label-text">Password</span>
                         </label>
                         <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                        <div>
+                                    {
+                                        loginError && <p className="text-[12px] text-red-500">{loginError}</p>
+                                    }
+                                </div>
                         <label className="label">
                             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>

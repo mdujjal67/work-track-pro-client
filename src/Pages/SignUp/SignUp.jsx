@@ -30,7 +30,8 @@ const SignUp = () => {
                             bankAccountNumber: data.bankAccountNumber,
                             salary: data.salary,
                             designation: data.designation,
-                            role: data.role
+                            role: data.role,
+                            isVerified : 'pending'
                         };
                         axiosPublic.post('/users', userInfo)
                             .then(res => {

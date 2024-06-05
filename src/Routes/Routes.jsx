@@ -6,6 +6,10 @@ import Dashboard from "../Layout/Dashboard";
 import SignUp from "../Pages/SignUp/SignUp";
 import Login from "../Pages/Login/Login";
 import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage";
+import PrivateRoute from "./PrivateRoutes";
+import AllEmployee from "../Pages/Dashboard/AllEmployee/AllEmployee";
+import AdminRoute from "./AdminRoutes";
+import Messages from "../Pages/Dashboard/Messages/Messages";
 
 
 const router = createBrowserRouter([
@@ -41,11 +45,22 @@ const router = createBrowserRouter([
     {
         path: "/dashboard",
         element: 
-          <Dashboard></Dashboard>,
+          <PrivateRoute>
+            <Dashboard></Dashboard>
+          </PrivateRoute>,
         children: [
-          // normal user routes
+          // admin routes
           {
-
+            path:'all-employee-list',
+            element:<AdminRoute>
+                <AllEmployee></AllEmployee>
+            </AdminRoute>
+          },
+          {
+            path:'messages',
+            element:<AdminRoute>
+                <Messages></Messages>
+            </AdminRoute>
           },
         ]
       }
