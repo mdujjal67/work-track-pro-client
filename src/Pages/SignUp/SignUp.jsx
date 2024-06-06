@@ -31,7 +31,8 @@ const SignUp = () => {
                             salary: data.salary,
                             designation: data.designation,
                             role: data.role,
-                            isVerified : 'Pending'
+                            isVerified : 'Pending',
+                            employeeStatus: 'Active',
                         };
                         axiosPublic.post('/users', userInfo)
                             .then(res => {

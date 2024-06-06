@@ -59,12 +59,12 @@ const Dashboard = () => {
                             isHR ?
                                 (<>
                                     <li className="mb-2">
-                                        <NavLink to='/dashboard/userHome'>
+                                        <NavLink to='/dashboard/employee-list'>
                                             <FaHome className="text-lg" />
                                             Employee List</NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to='/dashboard/paymentHistory'>
+                                        <NavLink to='/dashboard/progress'>
                                             <MdOutlinePayment className="text-lg" />
                                             Progress</NavLink>
                                     </li>

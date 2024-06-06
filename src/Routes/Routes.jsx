@@ -11,6 +11,8 @@ import AllEmployee from "../Pages/Dashboard/AllEmployee/AllEmployee";
 import AdminRoute from "./AdminRoutes";
 import Messages from "../Pages/Dashboard/Messages/Messages";
 import WorkSheet from "../Pages/Dashboard/WorkSheet/WorkSheet";
+import EmployeeList from "../Pages/Dashboard/HRPanel/EmployeeList/EmployeeList";
+import Progress from "../Pages/Dashboard/HRPanel/Progress/Progress";
 
 
 const router = createBrowserRouter([
@@ -68,6 +70,19 @@ const router = createBrowserRouter([
         {
             path:'work-sheet',
             element: <WorkSheet></WorkSheet>
+        },
+        {
+
+        },
+
+        // hr routes
+        {
+            path: 'employee-list',
+            element: <EmployeeList></EmployeeList>,
+        },
+        {
+            path: 'progress',
+            element: <Progress></Progress>
         }
         ]
       }
