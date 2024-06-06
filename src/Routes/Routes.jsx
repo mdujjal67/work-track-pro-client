@@ -13,6 +13,8 @@ import Messages from "../Pages/Dashboard/Messages/Messages";
 import WorkSheet from "../Pages/Dashboard/WorkSheet/WorkSheet";
 import EmployeeList from "../Pages/Dashboard/HRPanel/EmployeeList/EmployeeList";
 import Progress from "../Pages/Dashboard/HRPanel/Progress/Progress";
+import HRRoutes from "./HRRoutes";
+import EmployeeRoutes from "./EmployeeRoutes";
 
 
 const router = createBrowserRouter([
@@ -69,7 +71,9 @@ const router = createBrowserRouter([
         //   employee routes
         {
             path:'work-sheet',
-            element: <WorkSheet></WorkSheet>
+            element: <EmployeeRoutes>
+                <WorkSheet></WorkSheet>
+            </EmployeeRoutes>,
         },
         {
 
@@ -78,11 +82,15 @@ const router = createBrowserRouter([
         // hr routes
         {
             path: 'employee-list',
-            element: <EmployeeList></EmployeeList>,
+            element: <HRRoutes>
+                <EmployeeList></EmployeeList>
+            </HRRoutes>,
         },
         {
             path: 'progress',
-            element: <Progress></Progress>
+            element: <HRRoutes>
+                <Progress></Progress>
+            </HRRoutes>,
         }
         ]
       }

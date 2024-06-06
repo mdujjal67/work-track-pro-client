@@ -1,15 +1,49 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import Swal from "sweetalert2";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 const WorkSheet = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
     const [startDate, setStartDate] = useState(new Date());
 
-    const onSubmit = (data) => {
-        console.log(data)
+    const {user} = useContext(AuthContext);
+    const {email, designation} = user
+
+    const handleContactedUser = (event) => {
+        event.preventDefault();
+        const form = event.target;
+        const taskName = form.taskName.value;
+        const hoursWorked = form.hoursWorked.value;
+        const date = form.date.value;
+
+        const workSheet = { taskName, hoursWorked, date, email, designation};
+        console.log(workSheet);
+
+        // send works data to the server 
+        fetch('http://localhost:9000/workSheet', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(workSheet)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Added to WorkSheet!',
+                        // text: 'Added!',
+                        icon: 'success',
+                        confirmButtonText: 'Success',
+                        timer: 1500
+                    });
+                    form.reset()
+                }
+            })
+
     }
 
     return (
@@ -52,20 +86,20 @@ const WorkSheet = () => {
             </div>
 
             {/* This part is for Form section */}
-            <form onSubmit={handleSubmit(onSubmit)} className="lg:flex lg:gap-3 ">
+            <form onSubmit={handleContactedUser} className="lg:flex lg:gap-3 ">
                 {/* This is for Tasks field */}
                 <div className="form-control">
                     <label className="label">
                         <span className="label-text">Your Tasks</span>
                     </label>
-                    <select  {...register("role", { required: true })} name="role" className="select select-bordered" >
+                    <select name="taskName" required className="select select-bordered focus:ring focus:ring-blue-500 focus:border-blue-500 active:border-blue-500" >
                         <option disabled selected>Tasks</option>
                         <option value="Sales">Sales</option>
                         <option value="Content">Content</option>
                         <option value="Support">Support</option>
                         <option value="Paper-Work">Paper-Work</option>
                     </select>
-                    {errors.role && <span className="text-red-500">Role is required</span>}
+                    {/* {errors.role && <span className="text-red-500">Role is required</span>} */}
                 </div>
 
                 {/* This is for hour worked field*/}
@@ -73,21 +107,21 @@ const WorkSheet = () => {
                     <label className="label">
                         <span className="label-text">Hours Worked</span>
                     </label>
-                    <input {...register("bankAccountNumber", { required: true })} type="number" name="bankAccountNumber" placeholder="Hours Worked" className="input input-bordered" />
-                    {errors.bankAccountNumber && <span className="text-red-500">Bank Account Number is required</span>}
+                    <input  type="number" name="hoursWorked" required placeholder="Hours Worked" className="input input-bordered focus:ring focus:ring-blue-500 focus:border-blue-500 active:border-blue-500" />
+                    {/* {errors.bankAccountNumber && <span className="text-red-500">Bank Account Number is required</span>} */}
                 </div>
 
                 {/* This is for date field*/}
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Salary</span>
+                        <span className="label-text">Date</span>
                     </label>
-                    <DatePicker name="date" className="border border-gray-300 py-3 rounded-lg pl-5" selected={startDate} onChange={(date) => setStartDate(date)} required />
-                    {errors.salary && <span className="text-red-500">Salary is required</span>}
+                    <DatePicker name="date" className="border border-gray-300 py-3 rounded-lg pl-5 focus:ring focus:ring-blue-500 focus:border-blue-500 active:border-blue-500" selected={startDate} onChange={(date) => setStartDate(date)} required />
+                    {/* {errors.salary && <span className="text-red-500">Salary is required</span>} */}
                 </div>
 
                 <div className="form-control mt-[35px]">
-                    <input type="submit" className="btn bg-[#00a1ea] text-white w-full" value="Submit" />
+                    <input type="submit" className="btn bg-[#00a1ea] text-white w-full " value="Submit" />
                 </div>
             </form>
         </div>
