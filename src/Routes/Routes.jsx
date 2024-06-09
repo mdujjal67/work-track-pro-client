@@ -16,6 +16,7 @@ import Progress from "../Pages/Dashboard/HRPanel/Progress/Progress";
 import HRRoutes from "./HRRoutes";
 import EmployeeRoutes from "./EmployeeRoutes";
 import ForgetPassword from "../Pages/ForgetPassword/ForgetPassword";
+import Details from "../Pages/Dashboard/HRPanel/Details/Details";
 
 
 const router = createBrowserRouter([
@@ -96,6 +97,12 @@ const router = createBrowserRouter([
             element: <HRRoutes>
                 <Progress></Progress>
             </HRRoutes>,
+        },
+        {
+            path: 'details/:email',
+            element: <HRRoutes>
+                <Details></Details>
+            </HRRoutes>
         }
         ]
       }

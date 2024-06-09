@@ -80,14 +80,14 @@ const Navbar = () => {
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-56">
                             <Link to="/">
                                 <li className="pb-2">
-                                    <button className="justify-between py-1 hover:bg-[#00a1ea] rounded-lg text-gray-700 gray-on-dark-mode hover:text-gray-300">
+                                    <button className="justify-between py-1 hover:bg-[#00a1ea] rounded-lg text-gray-700 gray-on-dark-mode hover:text-gray-100">
                                         Profile
                                         <span className=" text-[10px]">({user.email})</span>
                                     </button>
                                 </li>
                             </Link>
                             <li>
-                                <button className="menu md:block py-1 hover:bg-[#00396a] rounded-lg text-gray-700 gray-on-dark-mode hover:text-gray-300" onClick={handleLogOut}>Log Out</button>
+                                <button className="menu md:block py-1 hover:bg-[#00a1ea]  rounded-lg text-gray-700 gray-on-dark-mode hover:text-gray-100" onClick={handleLogOut}>Log Out</button>
                             </li>
                         </ul>
                     </div>
@@ -96,9 +96,9 @@ const Navbar = () => {
                     {
                         user?.email ? '' :
                             <div className="flex gap-2">
-                                <button className="menu text-[14px] lg:text-[16px] px-1 lg:mr-2 bg-[#00a1ea] hover:bg-gray-200 hover:text-gray-700 rounded-lg text-white "><Link to="/login">Login</Link></button>
+                                <button className="menu text-[14px] lg:text-[16px] px-2 lg:mr-2 bg-[#00a1ea] hover:bg-gray-200 hover:text-gray-700 rounded-lg text-white "><Link to="/login">Login</Link></button>
 
-                                <button className="menu px-1 text-[14px] lg:text-[16px] bg-[#00a1ea] rounded-lg text-white hover:bg-gray-200 hover:text-gray-700"><Link to="/sign-up">Sign Up</Link></button>
+                                <button className="menu px-2 text-[14px] lg:text-[16px] bg-[#00a1ea] rounded-lg text-white hover:bg-gray-200 hover:text-gray-700"><Link to="/sign-up">Sign Up</Link></button>
                             </div>
                     }
                 </div>

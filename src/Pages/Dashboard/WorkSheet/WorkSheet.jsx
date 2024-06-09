@@ -17,9 +17,9 @@ const WorkSheet = () => {
     const axiosSecure = useAxiosSecure();
 
     const {refetch ,data: works = [] } = useQuery({
-        queryKey: ['users'],
+        queryKey: ['users', email],
         queryFn: async () => {
-            const res = await axiosSecure.get('/workSheet')
+            const res = await axiosSecure.get(`/workSheet/${email}`)
             return res.data
         }
     });

@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { ImCross } from "react-icons/im";
 import { FaCheckSquare } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const EmployeeList = () => {
 
@@ -86,7 +87,9 @@ const EmployeeList = () => {
                                 <td>{employee.bankAccountNumber}</td>
                                 <td>$ {employee.salary}</td>
                                 <td><button className="btn btn-xs lg:btn-sm bg-green-500 text-white">Pay</button></td>
-                                <td><button className="btn btn-xs lg:btn-sm bg-blue-500 text-white">Details</button></td>
+                                <td><Link to={`/dashboard/details/${employee.email}`}>
+                                    <button className="btn btn-xs lg:btn-sm bg-blue-500 text-white">Details</button>
+                                </Link></td>
                             </tr>)
                         }
                     </tbody>
