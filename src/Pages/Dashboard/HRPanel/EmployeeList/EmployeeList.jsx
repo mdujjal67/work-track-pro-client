@@ -1,8 +1,8 @@
-import { FaRegSquareCheck } from "react-icons/fa6";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { ImCross } from "react-icons/im";
+import { FaCheckSquare } from "react-icons/fa";
 
 const EmployeeList = () => {
 
@@ -21,13 +21,13 @@ const EmployeeList = () => {
     const handleMakeHR = employee => {
         console.log("User:", employee);
         Swal.fire({
-            title: "Are you sure?",
-            text: `${employee.name} will be an HR!`,
+            title: "Verify This Employee?",
+            // text: `${employee.name} will be an HR!`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, make HR!"
+            confirmButtonText: "Yes, Verify!"
         })
             .then(result => {
                 if (result.isConfirmed) {
@@ -39,7 +39,7 @@ const EmployeeList = () => {
                                 Swal.fire({
                                     position: "top-center",
                                     icon: "success",
-                                    title: `${employee.name} is an HR Now!`,
+                                    title: `${employee.name} is verified Now!`,
                                     showConfirmButton: false,
                                     timer: 2000
                                 });
@@ -79,7 +79,7 @@ const EmployeeList = () => {
                                 <td>{employee.name}</td>
                                 <td>{employee.email}</td>
                                 <td>
-                                    {employee?.isVerified === 'Verified' ? <FaRegSquareCheck className="text-white text-lg"/> : <button onClick={() => handleMakeHR(employee)} className="btn btn-ghost btn-sm ">
+                                    {employee?.isVerified === 'Verified' ? <FaCheckSquare className="bg-white text-green-500 text-xl ml-3"/> : <button onClick={() => handleMakeHR(employee)} className="btn btn-ghost btn-sm ">
                                         <ImCross className="text-red-500 text-lg"></ImCross>
                                     </button>}
                                 </td>

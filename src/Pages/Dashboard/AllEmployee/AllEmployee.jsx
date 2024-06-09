@@ -16,7 +16,7 @@ const AllEmployee = () => {
         }
     });
 
-    const employees = users.filter(employee => employee.role !== 'Admin' && employee.isVerified !== '');
+    const employees = users.filter(employee => employee.role !== 'Admin' && employee.isVerified === 'Verified');
 
     const handleMakeHR = employee => {
         console.log("User:", employee);

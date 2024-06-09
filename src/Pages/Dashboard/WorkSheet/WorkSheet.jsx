@@ -76,14 +76,13 @@ const WorkSheet = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {/* row 1 */}
                         {
                             works.map((work, index) => <tr key={work._id} className="bg-base-100">
-                            <th>{index+1}</th>
-                            <td>{work.taskName}</td>
-                            <td>{work.hoursWorked}</td>
-                            <td>{work.date}</td>
-                        </tr>)
+                                <th>{index + 1}</th>
+                                <td>{work.taskName}</td>
+                                <td>{work.hoursWorked}</td>
+                                <td>{work.date}</td>
+                            </tr>)
                         }
                     </tbody>
                 </table>
@@ -92,7 +91,7 @@ const WorkSheet = () => {
             {/* This part is for Form section */}
             <h2 className="text-2xl font-bold mb-5">Submit Your Works:</h2>
             <div className="">
-                <form onSubmit={handleContactedUser} className="lg:flex lg:gap-3">
+                <form onSubmit={handleContactedUser} className="lg:flex lg:gap-3 mb-20">
                     {/* This is for Tasks field */}
                     <div className="form-control">
                         <label className="label">
