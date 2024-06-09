@@ -14,20 +14,20 @@ const Messages = () => {
     });
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto ">
             <h1 className="text-3xl text-center font-bold my-10">Visitors Feedback:</h1>
             <div>
                 <div className="overflow-x-auto">
-                    <table className="table">
+                    <table className="table ">
                         {/* head */}
-                        <thead className="bg-base-200">
-                            <tr>
+                        <thead className="bg-base-200 text-[12px] lg:text-[16px]">
+                            <tr className="">
                                 <th></th>
-                                <th className="col-span-1">Email</th>
-                                <th className="col-span-3">Feedback</th>
+                                <th className="lg:col-span-1">Email</th>
+                                <th className="lg:col-span-5">Feedback</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="text-[12px] lg:text-[16px]">
 
                             {
                                 users.map((user, index) => <tr key={user._id} className="bg-base-50">

@@ -69,20 +69,20 @@ const Navbar = () => {
                     </ul>
                 </div>
 
-                <div className="navbar-end">
+                <div className="navbar-end ">
                 {user? 
                     <div className=" dropdown dropdown-end z-10">
-                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                        <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar bg-gray-200">
                             <div className="w-10 rounded-full">
                                 <img referrerPolicy="no-referrer" src={user?.photoURL} alt="user" />
                             </div>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                            <Link to="/user-profile">
-                                <li className="">
-                                    <button className="justify-between py-1 hover:bg-[#00396a] rounded-lg text-gray-700 gray-on-dark-mode hover:text-gray-300">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-56">
+                            <Link to="/">
+                                <li className="pb-2">
+                                    <button className="justify-between py-1 hover:bg-[#00a1ea] rounded-lg text-gray-700 gray-on-dark-mode hover:text-gray-300">
                                         Profile
-                                        <span className=" text-[10px]">{user.email}</span>
+                                        <span className=" text-[10px]">({user.email})</span>
                                     </button>
                                 </li>
                             </Link>

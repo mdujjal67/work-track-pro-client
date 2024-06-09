@@ -47,7 +47,7 @@ const Progress = () => {
 
 
     return (
-        <div>
+        <div className="mx-auto container">
             <h1 className="text-3xl font-bold text-center my-10"> Work Records:</h1>
 
             <div className="input-bordered md:flex gap-4 cursor-pointer required text-black w-[200px] lg:w-[600px] mx-auto outline-none focus:outline-none focus:ring focus:ring-opacity-50 focus:dark:ring-violet-600 rounded-full lg:mt-10 lg:mb-14">

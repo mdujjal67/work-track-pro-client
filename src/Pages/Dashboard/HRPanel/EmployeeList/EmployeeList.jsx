@@ -18,7 +18,7 @@ const EmployeeList = () => {
 
     const employees = users.filter(employee => employee.role !== 'Admin' && employee.role !== 'HR');
 
-    const handleMakeHR = employee => {
+    const handleVerifyEmployee = employee => {
         console.log("User:", employee);
         Swal.fire({
             title: "Verify This Employee?",
@@ -79,7 +79,7 @@ const EmployeeList = () => {
                                 <td>{employee.name}</td>
                                 <td>{employee.email}</td>
                                 <td>
-                                    {employee?.isVerified === 'Verified' ? <FaCheckSquare className="bg-white text-green-500 text-xl ml-3"/> : <button onClick={() => handleMakeHR(employee)} className="btn btn-ghost btn-sm ">
+                                    {employee?.isVerified === 'Verified' ? <FaCheckSquare className="bg-white text-green-500 text-xl ml-3"/> : <button onClick={() => handleVerifyEmployee(employee)} className="btn btn-ghost btn-sm ">
                                         <ImCross className="text-red-500 text-lg"></ImCross>
                                     </button>}
                                 </td>

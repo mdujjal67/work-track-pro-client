@@ -15,6 +15,7 @@ import EmployeeList from "../Pages/Dashboard/HRPanel/EmployeeList/EmployeeList";
 import Progress from "../Pages/Dashboard/HRPanel/Progress/Progress";
 import HRRoutes from "./HRRoutes";
 import EmployeeRoutes from "./EmployeeRoutes";
+import ForgetPassword from "../Pages/ForgetPassword/ForgetPassword";
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         {
             path:"/login",
             element:<Login></Login>
+        },
+        {
+            path: "/forget-password",
+            element: <ForgetPassword></ForgetPassword>
         },
         {
             path:"*",
