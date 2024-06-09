@@ -16,7 +16,7 @@ const WorkSheet = () => {
 
     const axiosSecure = useAxiosSecure();
 
-    const { data: works = [] } = useQuery({
+    const {refetch ,data: works = [] } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const res = await axiosSecure.get('/workSheet')
@@ -32,8 +32,9 @@ const WorkSheet = () => {
         const taskName = form.taskName.value;
         const hoursWorked = form.hoursWorked.value;
         const date = form.date.value;
+        const name = user.displayName;
 
-        const workSheet = { taskName, hoursWorked, date, email, designation };
+        const workSheet = { taskName, hoursWorked, date, email, designation, name };
         console.log(workSheet);
 
         // send works data to the server 
@@ -55,7 +56,8 @@ const WorkSheet = () => {
                         confirmButtonText: 'Success',
                         timer: 1500
                     });
-                    form.reset()
+                    form.reset();
+                    refetch()
                 }
             })
 

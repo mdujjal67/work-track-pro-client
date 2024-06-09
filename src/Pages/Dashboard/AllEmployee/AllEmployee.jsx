@@ -31,13 +31,13 @@ const AllEmployee = () => {
         })
             .then(result => {
                 if (result.isConfirmed) {
-                    axiosSecure.put(`/users/${employee._id}`)
+                    axiosSecure.patch(`/users/${employee._id}`)
                         .then(res => {
                             console.log(res.data)
                             if (res.data.modifiedCount > 0) {
                                 refetch();
                                 Swal.fire({
-                                    position: "top-center",
+                                    // position: "top-center",
                                     icon: "success",
                                     title: `${employee.name} is an HR Now!`,
                                     showConfirmButton: false,
