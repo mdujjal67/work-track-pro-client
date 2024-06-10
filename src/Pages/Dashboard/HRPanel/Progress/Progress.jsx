@@ -48,13 +48,13 @@ const Progress = () => {
 
     return (
         <div className="mx-auto container">
-            <h1 className="text-3xl font-bold text-center my-10"> Work Records:</h1>
+            <h1 className="text-3xl font-bold text-center lg:my-10"> Work Records:</h1>
 
-            <div className="input-bordered md:flex gap-4 cursor-pointer required text-black w-[200px] lg:w-[600px] mx-auto outline-none focus:outline-none focus:ring focus:ring-opacity-50 focus:dark:ring-violet-600 rounded-full lg:mt-10 lg:mb-14">
+            <div className="input-bordered md:flex gap-4 cursor-pointer required text-black w-[200px] lg:w-[500px] mx-auto outline-none focus:outline-none focus:ring focus:ring-opacity-50 focus:dark:ring-[#00a1ea] rounded-full lg:mt-10 lg:mb-14">
                 {/* select by name */}
                 <select
                     name="name"
-                    className="select rounded-lg join-item text-black w-full outline-none focus:outline-none focus:ring focus:ring-opacity-50 py-3 focus:dark:ring-violet-600 bg-gray-100"
+                    className="select rounded-lg join-item text-black w-full outline-none focus:outline-none focus:ring focus:ring-opacity-50 py-3 my-3 lg:my-0 focus:dark:ring-[#00a1ea] bg-gray-100"
                     value={selectedName}
                     onChange={(e) => setSelectedName(e.target.value)}
                     required
@@ -70,7 +70,7 @@ const Progress = () => {
                 {/* seelct by months */}
                 <select
                     name="month"
-                    className="select rounded-lg join-item text-black w-full outline-none focus:outline-none focus:ring focus:ring-opacity-50 py-3 focus:dark:ring-violet-600 bg-gray-100"
+                    className="select rounded-lg join-item text-black w-full outline-none focus:outline-none focus:ring focus:ring-opacity-50 py-3 focus:dark:ring-[#00a1ea] bg-gray-100"
                     value={selectedMonth}
                     onChange={(e) => setSelectedMonth(e.target.value)}
                     required

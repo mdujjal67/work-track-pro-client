@@ -39,14 +39,14 @@ const Details = () => {
     ];
 
     const renderBarChart = (data = []) => (
-        <ResponsiveContainer width="70%" height={400}>
+        <ResponsiveContainer width="80%" height={400}>
             <BarChart data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="monthYear" />
                 <YAxis />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="salary" fill="#8884d8" barSize={60}/>
+                <Bar dataKey="salary" fill="#8884d8" barSize={50}/>
             </BarChart>
         </ResponsiveContainer>
     );

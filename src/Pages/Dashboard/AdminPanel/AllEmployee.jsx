@@ -87,7 +87,7 @@ const AllEmployee = () => {
         if (newSalaryNumber > currentSalaryNumber) {
             axiosSecure.put(`/users/${selectedEmployee._id}`, { newSalary: newSalaryNumber, currentSalary: currentSalaryNumber })
             .then(res => {
-                // if (res.data.modifiedCount > 0) {
+                if (res.data.modifiedCount > 0) {
                     refetch();
                     setIsModalOpen(false);
                     Swal.fire({
@@ -96,7 +96,7 @@ const AllEmployee = () => {
                         showConfirmButton: false,
                         timer: 2000
                     });
-                // }
+                }
             });
         } else {
             Swal.fire('Error!', `Salary must be greater than ${selectedEmployee.salary}.`, 'error');
@@ -108,7 +108,7 @@ const AllEmployee = () => {
     return (
         <div className="container mx-auto">
             <div className="flex justify-evenly my-4 items-center">
-                <h3 className="text-3xl font-bold lg:my-8 my-4">Employees:</h3>
+                <h3 className="text-3xl font-bold lg:my-8 my-4">Verified Employees: {employees.length}</h3>
                 <button
                     onClick={() => setIsTableView(!isTableView)}
                     className="btn btn-xs md:btn-sm bg-blue-500 text-white"

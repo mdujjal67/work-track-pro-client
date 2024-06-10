@@ -53,17 +53,13 @@ const SignUp = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200 py-10">
-                <div className="hero-content flex-col lg:flex-row">
-                    {/* <div className="text-center lg:text-left">
-                        
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat</p>
-                    </div> */}
-                    <div className="card shrink-0 w-full lg:w-[700px] shadow-2xl bg-base-100">
-                        <h1 className="text-4xl font-bold text-center mt-12">Sign Up now!</h1>
-                        <form onSubmit={handleSubmit(onSubmit)} className="card-body grid lg:grid-cols-2 gap-4">
+            <div className=" min-h-screen bg-base-200 py-10">
+                <div className="hero-content">
+                    <div className="card shrink-0 w-full lg:w-[700px] shadow-2xl bg-base-100 px-5">
+                        <h1 className="text-4xl font-bold text-center my-10">Sign Up now!</h1>
+                        <form onSubmit={handleSubmit(onSubmit)} className=" grid grid-cols-1 lg:grid-cols-2 gap-4">
                             {/* This is for name field*/}
-                            <div className="form-control">
+                            <div className="form-control col-span-2 lg:col-span-1">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
@@ -72,7 +68,7 @@ const SignUp = () => {
                             </div>
 
                             {/* This is for email field*/}
-                            <div className="form-control">
+                            <div className="form-control col-span-2 lg:col-span-1 ">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
@@ -81,7 +77,7 @@ const SignUp = () => {
                             </div>
 
                             {/* This is for Password field*/}
-                            <div className="form-control">
+                            <div className="form-control col-span-2 lg:col-span-1 ">
                                 <label className="label">
                                     <span className="label-text">Create Password</span>
                                 </label>
@@ -97,7 +93,7 @@ const SignUp = () => {
                             </div>
 
                             {/* This is for Bank Account field*/}
-                            <div className="form-control">
+                            <div className="form-control col-span-2 lg:col-span-1 ">
                                 <label className="label">
                                     <span className="label-text">Bank Account Number</span>
                                 </label>
@@ -106,7 +102,7 @@ const SignUp = () => {
                             </div>
 
                             {/* This is for Salary field*/}
-                            <div className="form-control">
+                            <div className="form-control col-span-2 lg:col-span-1 ">
                                 <label className="label">
                                     <span className="label-text">Salary</span>
                                 </label>
@@ -115,7 +111,7 @@ const SignUp = () => {
                             </div>
 
                             {/* This is for role field */}
-                            <div className="form-control">
+                            <div className="form-control col-span-2 lg:col-span-1">
                                 <label className="label">
                                     <span className="label-text">Role</span>
                                 </label>
@@ -128,7 +124,7 @@ const SignUp = () => {
                             </div>
 
                             {/* This is for Designation field*/}
-                            <div className="form-control">
+                            <div className="form-control col-span-2 lg:col-span-1">
                                 <label className="label">
                                     <span className="label-text">Designation</span>
                                 </label>
@@ -137,7 +133,7 @@ const SignUp = () => {
                             </div>
 
                             {/* This is for Photo URL field*/}
-                            <div className="form-control">
+                            <div className="form-control col-span-2 lg:col-span-1">
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
                                 </label>

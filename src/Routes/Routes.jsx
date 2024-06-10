@@ -7,16 +7,17 @@ import SignUp from "../Pages/SignUp/SignUp";
 import Login from "../Pages/Login/Login";
 import NotFoundPage from "../Pages/NotFoundPage/NotFoundPage";
 import PrivateRoute from "./PrivateRoutes";
-import AllEmployee from "../Pages/Dashboard/AllEmployee/AllEmployee";
+import AllEmployee from "../Pages/Dashboard/AdminPanel/AllEmployee";
 import AdminRoute from "./AdminRoutes";
-import Messages from "../Pages/Dashboard/Messages/Messages";
-import WorkSheet from "../Pages/Dashboard/WorkSheet/WorkSheet";
+import WorkSheet from "../Pages/Dashboard/EmployeePanel/WorkSheet/WorkSheet";
 import EmployeeList from "../Pages/Dashboard/HRPanel/EmployeeList/EmployeeList";
 import Progress from "../Pages/Dashboard/HRPanel/Progress/Progress";
 import HRRoutes from "./HRRoutes";
 import EmployeeRoutes from "./EmployeeRoutes";
 import ForgetPassword from "../Pages/ForgetPassword/ForgetPassword";
 import Details from "../Pages/Dashboard/HRPanel/Details/Details";
+import PaymentHistory from "../Pages/Dashboard/EmployeePanel/PaymentHistory";
+import Messages from "../Pages/Dashboard/AdminPanel/Messages/Messages";
 
 
 const router = createBrowserRouter([
@@ -82,7 +83,8 @@ const router = createBrowserRouter([
             </EmployeeRoutes>,
         },
         {
-
+            path: 'payment-history',
+            element: <PaymentHistory></PaymentHistory>
         },
 
         // hr routes

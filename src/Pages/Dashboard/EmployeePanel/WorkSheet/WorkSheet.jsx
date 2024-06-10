@@ -2,8 +2,8 @@ import { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../../Provider/AuthProvider";
-import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { AuthContext } from "../../../../Provider/AuthProvider";
+import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 
 const WorkSheet = () => {
