@@ -1,8 +1,11 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import { useState } from "react";
+import PropTypes from "prop-types"
 
 const CheckoutForm = ({ selectedEmployee, month, year, setMonth, setYear, onSuccess }) => {
     const stripe = useStripe();
     const elements = useElements();
+    const [error, setError] = useState()
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -25,11 +28,14 @@ const CheckoutForm = ({ selectedEmployee, month, year, setMonth, setYear, onSucc
 
         if (error) {
             console.log('[error]', error);
-        } else {
+            setError(error.message);
+        } 
+        else {
             console.log('[PaymentMethod]', paymentMethod);
 
             // Assume payment processing is successful
             onSuccess();
+            setError('')
         }
     };
 
@@ -58,7 +64,6 @@ const CheckoutForm = ({ selectedEmployee, month, year, setMonth, setYear, onSucc
                         base: {
                             fontSize: '16px',
                             backgroundColor: '#F9FAFB',
-                            padding: '10px 0',
                             color: '#424770',
                             '::placeholder': {
                                 color: '#aab7c4',
@@ -74,8 +79,17 @@ const CheckoutForm = ({ selectedEmployee, month, year, setMonth, setYear, onSucc
             <button type="submit" disabled={!stripe} className="btn btn-ghost btn-sm text-white bg-[#00a1ea] mt-3">
                 Pay
             </button>
+            <p className="text-[12px] text-red-500">{error}</p>
         </form>
     );
 };
 
+CheckoutForm.propTypes = {
+    selectedEmployee: PropTypes.object,
+    onSuccess: PropTypes.object,
+    month:PropTypes.object, 
+    year:PropTypes.object, 
+    setMonth:PropTypes.object, 
+    setYear:PropTypes.object
+};
 export default CheckoutForm;
