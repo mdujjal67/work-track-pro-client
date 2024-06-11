@@ -24,10 +24,12 @@ const PaymentHistory = () => {
     // Filter payments for the logged-in user
     const userPayments = payments.filter(payment => payment.email === user.email);
 
+    const reversedPayments = userPayments.slice().reverse();
+
 
     return (
         <div>
-            <h1 className="text-3xl text-center font-bold my-8">Payment History: {userPayments.length}</h1>
+            <h1 className="text-3xl text-center font-bold my-8">Payment History: {reversedPayments.length}</h1>
             <table className="table">
                 <thead>
                     <tr>
@@ -38,7 +40,7 @@ const PaymentHistory = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {userPayments.map((payment, index) => (
+                    {reversedPayments.map((payment, index) => (
                         <tr key={index}>
                             <td>{index+1}</td>
                             <td>{payment.transactionId}</td>
