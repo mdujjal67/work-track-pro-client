@@ -62,40 +62,29 @@ const EmployeeList = () => {
         setIsModalOpen(true);
     };
 
-
-    const handlePaySuccess = () => {
+    const handlePaySuccess = (monthYear) => {
         // Update the list of paid months for the selected employee
         const employeeId = selectedEmployee._id;
         const paidMonthsForEmployee = paidMonths[employeeId] || [];
-        const monthYear = `${month}-${year}`;
 
-        if (paidMonthsForEmployee.includes(monthYear)) {
-            Swal.fire({
-                icon: "error",
-                title: `Payment Error`,
-                text: `Employee ${selectedEmployee.name} has already been paid for the month of ${monthYear}`,
-            });
-        } 
-        else {
-            setPaidMonths({
-                ...paidMonths,
-                [employeeId]: [...paidMonthsForEmployee, monthYear],
-            });
+        setPaidMonths({
+            ...paidMonths,
+            [employeeId]: [...paidMonthsForEmployee, monthYear],
+        });
 
-            Swal.fire({
-                icon: "success",
-                title: `Salary Paid for ${selectedEmployee.name}`,
-                showConfirmButton: false,
-                timer: 2000
-            });
+        Swal.fire({
+            icon: "success",
+            title: `Salary Paid for ${selectedEmployee.name}`,
+            showConfirmButton: false,
+            timer: 2000
+        });
 
-            // Clear month and year inputs
-            setMonth('');
-            setYear('');
-            setSelectedEmployee(null);
-            setIsModalOpen(false);
-            refetch();
-        }
+        // Clear month and year inputs
+        setMonth('');
+        setYear('');
+        setSelectedEmployee(null);
+        setIsModalOpen(false);
+        refetch();
     };
 
     return (
@@ -167,6 +156,7 @@ const EmployeeList = () => {
                                 setMonth={setMonth}
                                 setYear={setYear}
                                 onSuccess={handlePaySuccess}
+                                paidMonths={paidMonths[selectedEmployee._id] || []}
                             />
                         </Elements>
                         <div className="flex justify-end mt-4">
@@ -177,7 +167,6 @@ const EmployeeList = () => {
                                     setSelectedEmployee(null);
                                     setIsModalOpen(false);
                                 }}
-
                                 className="btn btn-ghost btn-sm text-white bg-orange-700 mr-2"
                             >
                                 Cancel
