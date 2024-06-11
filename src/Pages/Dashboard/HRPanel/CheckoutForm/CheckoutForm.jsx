@@ -77,7 +77,9 @@ const CheckoutForm = ({ selectedEmployee, month, year, setMonth, setYear, onSucc
                     month: month,
                     year: year,
                     transactionId: paymentIntent.id,
-                    salary: selectedEmployee?.salary
+                    salary: selectedEmployee?.salary,
+                    designation: selectedEmployee?.designation,
+                    photo: selectedEmployee?.photoURL
                 };
                 const res = await axiosSecure.post('/payments', payment);
                 console.log(res);

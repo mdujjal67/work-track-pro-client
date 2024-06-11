@@ -21,7 +21,7 @@ const AllEmployee = () => {
         }
     });
 
-    const employees = users.filter(employee => employee.role !== 'Admin' && employee.isVerified === 'Verified');
+    const employees = users.filter(employee => employee.role !== 'Admin' && employee.isVerified === 'Verified' || employee.role ==='HR');
 
     const handleMakeHR = (employee) => {
         Swal.fire({
