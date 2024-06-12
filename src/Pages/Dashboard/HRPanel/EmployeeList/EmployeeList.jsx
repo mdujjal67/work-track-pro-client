@@ -74,7 +74,7 @@ const EmployeeList = () => {
 
         Swal.fire({
             icon: "success",
-            title: `Salary Paid for ${selectedEmployee.name}`,
+            title: `Salary Paid to ${selectedEmployee.name} for the ${monthYear}`,
             showConfirmButton: false,
             timer: 2000
         });

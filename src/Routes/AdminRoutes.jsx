@@ -12,7 +12,15 @@ const AdminRoute = ({ children }) => {
     const location = useLocation();
 
     if (loading || isAdminLoading) {
-        return <span className="loading loading-ring loading-lg mt-[300px] ml-[600px] pb-10"></span>
+        return <div className="flex items-center justify-center h-screen">
+        <div className="flex flex-col gap-4 w-52">
+          <div className="skeleton h-32 w-full"></div>
+          <div className="skeleton h-4 w-28"></div>
+          <div className="skeleton h-4 w-full"></div>
+          <div className="skeleton h-4 w-full"></div>
+        </div>
+      </div>
+      
     }
 
     if (user && isAdmin) {

@@ -1,8 +1,36 @@
-# React + Vite
+# assignment12_category_0005
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Admin Email: mdujjal@gmail.com
+# Admin Password: Mdujjal@123
 
-Currently, two official plugins are available:
+# WorkTrackPro Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Welcome to WorkTrackPro, your comprehensive workforce management solution! Here, employers and employees can seamlessly track work hours, manage projects, and handle payroll, all in one place. Enjoy real-time collaboration, detailed performance analytics, and customized insights to optimize your workflow and enhance productivity. Join us and transform the way you manage work and track progress!
+
+## Live Site URL
+
+[EduTaskHub Website](https://edutaskhub-80dcb.web.app//)
+
+## Features and Characteristics
+
+- **Time Tracking**: Effortlessly track working hours and tasks with intuitive time tracking features.
+- **Project Management**: Organize and manage projects seamlessly with customizable project boards and task lists.
+- **Payroll Management**: Streamline payroll processes by automatically calculating and generating payrolls based on tracked work hours.
+- **Performance Analytics**: Gain insights into employee performance with detailed analytics and reporting tools.
+- **Employee Profiles**: Maintain comprehensive employee profiles including contact details, job roles, and salary information.
+- **Salary Visualization**: View employee salary details over time with interactive bar charts and graphs.
+- **Mobile Accessibility**: Access WorkTrackPro on the go with mobile-friendly interfaces and dedicated mobile apps.
+- **Integration Capabilities**: Integrate with popular productivity tools and platforms to enhance workflow efficiency.
+- **Customization Options**: Tailor WorkTrackPro to fit your organization's unique needs with customizable dashboards, fields, and workflows.
+- **Security and Privacy**: Ensure data security and privacy with robust encryption, access controls, and compliance certifications.
+
+- ## NPM packages:
+- **Swipper-Slick**
+- **React-Date-Picker**
+- **React-Stripe-js**
+- **Animate.css**
+- **Sweet-Alert2**
+- **React-Awesome-Reveal**
+- **React-Hot-Toast**
+- **React-Icons**
+- **Recharts**

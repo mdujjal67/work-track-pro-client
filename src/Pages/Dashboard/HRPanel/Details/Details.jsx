@@ -9,12 +9,12 @@ const Details = () => {
     const { email } = useParams();
     const axiosSecure = useAxiosSecure();
 
-    const { data: employeeArray, isLoading, error } = useQuery({
+    const { data: payments, isLoading, error } = useQuery({
         queryKey: ['employee', email],
         queryFn: async () => {
             try {
                 const res = await axiosSecure.get(`/payments/${email}`);
-                return res.data; // Assuming the data is an array of employee objects
+                return res.data; // Assuming the data is an array of payment objects
             } catch (error) {
                 console.error("Error fetching data:", error);
                 throw new Error("Error fetching data");
@@ -23,58 +23,90 @@ const Details = () => {
     });
 
     if (isLoading) {
-        return <span className="loading loading-ring loading-lg mt-[300px] ml-[600px] pb-10"></span>
+        return <div className="flex items-center justify-center h-screen">
+        <div className="flex flex-col gap-4 w-52">
+          <div className="skeleton h-32 w-full"></div>
+          <div className="skeleton h-4 w-28"></div>
+          <div className="skeleton h-4 w-full"></div>
+          <div className="skeleton h-4 w-full"></div>
+        </div>
+      </div>
+      
     }
 
-    if (error || !employeeArray) {
+    if (error || !payments) {
         return <div>Error fetching data</div>;
     }
 
-    // Assuming employeeArray contains all employees
-    const employee = employeeArray.find(emp => emp.email === email);
+    // Assuming each payment object has the employee details and payment details
+    const employee = payments[0];
+    console.log(employee)
 
     if (!employee) {
-        return <div className=" mt-20 lg:mt-60  h-screen ">
+        return <div className="mt-20 lg:mt-60 h-screen">
             <h2 className="text-2xl font-semibold text-center">No salary has been processed for this employee.</h2>
             <p className="text-center">Please initiate <Link to='/dashboard/employee-list' className="text-blue-500 hover:underline">payment</Link> to view salary details.</p>
         </div>
     }
 
-    // Default salary data for demonstration purposes
-    const defaultSalaryData = [
-        { monthYear: 'Jan 2023', salary: 5000 },
-        { monthYear: 'Feb 2023', salary: 5200 },
-        { monthYear: 'Mar 2023', salary: 4800 },
-        { monthYear: 'Apr 2023', salary: 5000 },
-        { monthYear: 'May 2023', salary: 5300 },
-        { monthYear: 'Jun 2023', salary: 5500 },
-    ];
+    const salaryData = payments.map(payment => ({
+        monthYear: `${payment.month} ${payment.year}`,
+        salary: payment.salary
+    }));
 
     const renderBarChart = (data = []) => (
         <ResponsiveContainer width="80%" height={400}>
             <BarChart data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="monthYear" />
-                <YAxis />
-                <Tooltip />
+                <YAxis tickFormatter={(value) => `$${value}`} />
+                <Tooltip formatter={(value) => [`$${value}`, "Salary"]} />
                 <Legend />
-                <Bar dataKey="salary" fill="#8884d8" barSize={50}/>
+                <Bar dataKey="salary" fill="#8884d8" barSize={50} />
             </BarChart>
         </ResponsiveContainer>
     );
 
     return (
-        <div>
-            <div className="flex gap-5 mt-8">
-                <h1>{employee.name}</h1>
-                <p>Email: {employee.email}</p>
-                <p>Designation: {employee.designation}</p>
-                <p>Salary: {employee.salary}</p> 
-                <img src={employee.photoURL} alt={`${employee.name}'s photo`} />
+        <div className="container mx-auto p-4">
+            <h2 className="text-3xl my-7 text-center font-bold">Employee Details:</h2>
+            <table className="table">
+                {/* head */}
+                <thead>
+                    <tr className="bg-base-300">
+                        <th className="px-2 text-[12px]"></th>
+                        <th className="px-2 text-[12px]">Employee Name</th>
+                        <th className="px-2 text-[12px]">Employee Designation</th>
+                        <th className="px-2 text-[12px]">Employee Salary</th>
 
-                <h2 className="mb-10">Salary vs. Month and Year</h2>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr className="bg-base-100">
+                        <td>
+                            <div className="flex items-center gap-3">
+                                <div className="avatar">
+                                    <div className="mask mask-squircle w-12 h-12">
+                                        <img src={employee.photo} alt="photo" />
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td className="px-2 text-[12px]">{employee.name}</td>
+                        <td className="px-2 text-[12px]">{employee.designation}</td>
+                        <td className="px-2 text-[12px]">$ {employee.salary}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div className=" mt-14">
             </div>
-            {renderBarChart(defaultSalaryData)}
+            <div className="flex gap-1 items-center mb-8">
+                <div className="w-3 h-3 bg-[#8884d8]"></div>
+                <p className="text-center text-gray-500 "><span className="text-[#8884d8]">Bar Chart:</span> Salary vs Month-Year plot</p>
+            </div>
+            <div className="mx-auto w-[80%] lg:w-full ml-16">
+                {renderBarChart(salaryData)}
+            </div>
         </div>
     );
 };
