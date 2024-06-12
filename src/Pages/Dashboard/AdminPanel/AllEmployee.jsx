@@ -2,9 +2,7 @@ import { FaUsers } from "react-icons/fa6";
 import { useState } from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
-import { MdDangerous } from "react-icons/md";
 import Swal from "sweetalert2";
-import deleteEmployeeAccount from "./DeleteEmployeeAccount";
 
 const AllEmployee = () => {
     const axiosSecure = useAxiosSecure();
@@ -50,26 +48,28 @@ const AllEmployee = () => {
     };
 
     const handleFireEmployee = async (employee) => {
-        Swal.fire({
+        const result = await Swal.fire({
             title: "Are you sure?",
-            text: `This employee will be fired from your company!`,
+            text: `${employee.name} will be fired from your company!`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, Fire!"
-        }).then(async (result) => {
-            if (result.isConfirmed) {
-                const deleted = await deleteEmployeeAccount(employee);
-                if (deleted) {
-                    Swal.fire('Deleted!', 'Employee account has been deleted.', 'success');
+        });
+    
+        if (result.isConfirmed) {
+                const res = await axiosSecure.put(`/users/updateStatus/${employee._id}`);
+                if (res.data.modifiedCount > 0) {
+                    console.log(res.data)
+                    Swal.fire('Fired!', `${employee.name} has been fired from your company.`, 'success');
                     refetch();
                 } else {
-                    Swal.fire('Error!', 'Failed to delete employee account.', 'error');
+                    Swal.fire('Error!', 'Failed to fire this employee.', 'error');
                 }
-            }
-        });
+        }
     };
+    
 
     const openSalaryModal = (employee) => {
         setSelectedEmployee(employee);
@@ -80,12 +80,12 @@ const AllEmployee = () => {
 
     const handleSalarySubmit = () => {
         // Convert newSalary and selectedEmployee.salary to numbers for proper comparison
-        const newSalaryNumber = parseFloat(newSalary);
-        const currentSalaryNumber = parseFloat(selectedEmployee.salary);
+        // const newSalaryNumber = parseFloat(newSalary);
+        const currentSalaryNumber = selectedEmployee.salary;
         // console.log(newSalary, currentSalaryNumber)
 
-        if (newSalaryNumber > currentSalaryNumber) {
-            axiosSecure.put(`/users/salary/${selectedEmployee._id}`, { newSalary: newSalaryNumber, currentSalary: currentSalaryNumber })
+        if (newSalary > currentSalaryNumber) {
+            axiosSecure.put(`/users/salary/${selectedEmployee._id}`, { newSalary: newSalary, currentSalary: currentSalaryNumber })
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     refetch();
@@ -140,7 +140,9 @@ const AllEmployee = () => {
                                         <button onClick={() => openSalaryModal(employee)} className="btn btn-ghost btn-xs text-white lg:text-[12px] text-[10px] bg-[#00a1ea] mt-2">Adjust</button>
                                     </td>
                                     <td>
-                                        {employee?.role === 'HR' ? 'Already HR' : (
+                                        {employee?.role === 'HR' ? (
+                                        <span className="text-green-500">Already HR</span>
+                                    ) : (
                                             <button
                                                 onClick={() => handleMakeHR(employee)}
                                                 className="btn btn-ghost btn-sm bg-[#00a1ea]"
@@ -189,11 +191,11 @@ const AllEmployee = () => {
                                         <span className="text-red-500 font-semibold">Fired</span>
                                     ) : (
                                         <button
-                                            onClick={() => handleFireEmployee(employee)}
-                                            className="btn btn-sm bg-red-500 text-white"
-                                        >
-                                            Fire
-                                        </button>
+                                                onClick={() => handleFireEmployee(employee)}
+                                                className="btn btn-ghost btn-sm bg-red-500"
+                                            >
+                                                <button className="text-white text-[16px]">Fire</button>
+                                            </button>
                                     )}
                                 </div>
                             </div>
