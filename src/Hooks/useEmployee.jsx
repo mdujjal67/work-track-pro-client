@@ -13,7 +13,7 @@ const useEmployee = () => {
         enabled: !!user?.email && !!localStorage.getItem('access-token'),
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/employee/${user.email}`);
-            console.log(res.data)
+            // console.log(res.data)
             return res.data?.employee;
         }
     });

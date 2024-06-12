@@ -39,7 +39,7 @@ const Progress = () => {
             return isNameMatch && isMonthMatch;
         });
     }, [works, selectedName, selectedMonth]);
-    console.log(filteredWorks);
+    // console.log(filteredWorks);
 
     const totalWorkHours = useMemo(() => {
         return filteredWorks.reduce((total, work) => total + parseFloat(work.hoursWorked), 0);
@@ -47,7 +47,7 @@ const Progress = () => {
 
 
     return (
-        <div className="mx-auto container">
+        <div className="mx-auto container mb-8">
             <h1 className="text-3xl font-bold text-center lg:my-10"> Work Records:</h1>
 
             <div className="input-bordered md:flex gap-4 cursor-pointer required text-black w-[200px] lg:w-[500px] mx-auto outline-none focus:outline-none focus:ring focus:ring-opacity-50 focus:dark:ring-[#00a1ea] rounded-full lg:mt-10 lg:mb-14">

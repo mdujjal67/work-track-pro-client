@@ -16,11 +16,11 @@ const SignUp = () => {
     const axiosPublic = useAxiosPublic();
 
     const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         const userInfo = {
@@ -47,14 +47,14 @@ const SignUp = () => {
                                 }
                             })
                     })
-                    .catch(error => console.log(error))
+                    .catch(error => (error))
             })
     };
 
     return (
         <div>
             <div className=" min-h-screen bg-base-200 py-10">
-                <div className="hero-content">
+                <div className="hero-content  container mx-auto">
                     <div className="card shrink-0 w-full lg:w-[700px] shadow-2xl bg-base-100 px-5">
                         <h1 className="text-4xl font-bold text-center my-10">Sign Up now!</h1>
                         <form onSubmit={handleSubmit(onSubmit)} className=" grid grid-cols-1 lg:grid-cols-2 gap-4">

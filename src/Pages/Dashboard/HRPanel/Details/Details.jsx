@@ -40,7 +40,7 @@ const Details = () => {
 
     // Assuming each payment object has the employee details and payment details
     const employee = payments[0];
-    console.log(employee)
+    // console.log(employee)
 
     if (!employee) {
         return <div className="mt-20 lg:mt-60 h-screen">
@@ -55,14 +55,14 @@ const Details = () => {
     }));
 
     const renderBarChart = (data = []) => (
-        <ResponsiveContainer width="80%" height={400}>
+        <ResponsiveContainer width="100%" height={400}>
             <BarChart data={data}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="monthYear" />
                 <YAxis tickFormatter={(value) => `$${value}`} />
                 <Tooltip formatter={(value) => [`$${value}`, "Salary"]} />
                 <Legend />
-                <Bar dataKey="salary" fill="#8884d8" barSize={50} />
+                <Bar dataKey="salary" fill="#8884d8" barSize={40} />
             </BarChart>
         </ResponsiveContainer>
     );

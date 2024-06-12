@@ -12,10 +12,10 @@ const ContactUs = () => {
 
         const contactedUser = { email, message };
 
-        console.log(contactedUser)
+        // console.log(contactedUser)
 
         // send data to the server 
-        fetch('http://localhost:9000/contactedUser', {
+        fetch('https://work-track-pro-server.vercel.app/contactedUser', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -24,7 +24,7 @@ const ContactUs = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
@@ -40,8 +40,8 @@ const ContactUs = () => {
 
 
     return (
-        <div className="mb-[100px] mt-[70px]">
-            <section className="py-14 dark:bg-gray-100 dark:text-gray-900 mx-auto container">
+        <div className="mb-[100px] mt-5">
+            <section className="py-14 dark:bg-gray-100 bg-gray-100 dark:text-gray-900 mx-auto container">
                 <div className="grid max-w-6xl grid-cols-1 px-6 mx-auto lg:px-8 md:grid-cols-2 md:divide-x">
                     <div className="py-6 md:py-0 md:px-6">
                         <h1 className="text-4xl font-bold">Get in touch</h1>

@@ -51,7 +51,7 @@ const Footer = () => {
 		</div>
 	</div>
 	<div className="flex items-center justify-center px-6 pt-12 text-sm">
-		<span className="dark:text-gray-600">© Copyright {new Date().getFullYear()}. All Rights Reserved.</span>
+		<span className="dark:text-gray-600">© Copyright {new Date().getFullYear()}. All Rights Reserved by WorkTrackPro.</span>
 	</div>
 </footer>
         </div>

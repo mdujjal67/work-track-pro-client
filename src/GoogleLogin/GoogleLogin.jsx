@@ -28,7 +28,7 @@ const GoogleLogin = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
 
                 const userInfo = {
                     email: result.user?.email,
@@ -43,7 +43,8 @@ const GoogleLogin = () => {
                 }
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
-                        console.log(res.data)
+                        // console.log(res.data)
+                        res.data;
                     })
                 Swal.fire({
                     position: "center",

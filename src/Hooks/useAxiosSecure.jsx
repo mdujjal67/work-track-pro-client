@@ -5,7 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 
 const axiosSecure = axios.create({
-    baseURL: 'http://localhost:9000'
+    baseURL: 'https://work-track-pro-server.vercel.app/'
 })
 
 const useAxiosSecure = () => {
@@ -31,7 +31,7 @@ const useAxiosSecure = () => {
 
       }, async (error) => {
         const status = error.response.status;
-        console.log('status error in the interceptor', status);
+        // console.log('status error in the interceptor', status);
         if(status === 401 || status === 403){
             await logOut()
             navigate('/login')

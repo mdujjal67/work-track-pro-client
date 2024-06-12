@@ -14,7 +14,7 @@ const CheckoutForm = ({ selectedEmployee, month, year, setMonth, setYear, onSucc
     useEffect(() => {
         axiosSecure.post('/create-payment-intent', { salary: selectedEmployee.salary })
             .then(res => {
-                console.log(res.data.clientSecret);
+                // console.log(res.data.clientSecret);
                 setClientSecret(res.data.clientSecret);
             });
     }, [selectedEmployee.salary, axiosSecure]);
@@ -49,7 +49,7 @@ const CheckoutForm = ({ selectedEmployee, month, year, setMonth, setYear, onSucc
         });
 
         if (error) {
-            console.log('[error]', error);
+            // console.log('[error]', error);
             setError(error.message);
         } else {
             console.log('[PaymentMethod]', paymentMethod);
@@ -66,9 +66,9 @@ const CheckoutForm = ({ selectedEmployee, month, year, setMonth, setYear, onSucc
             });
 
             if (confirmError) {
-                console.log('confirm error', confirmError);
+                // console.log('confirm error', confirmError);
             } else {
-                console.log('payment intent', paymentIntent);
+                // console.log('payment intent', paymentIntent);
 
                 // Save payment info in the database
                 const payment = {

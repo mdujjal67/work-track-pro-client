@@ -82,7 +82,7 @@ const AllEmployee = () => {
         // Convert newSalary and selectedEmployee.salary to numbers for proper comparison
         const newSalaryNumber = parseFloat(newSalary);
         const currentSalaryNumber = parseFloat(selectedEmployee.salary);
-        console.log(newSalary, currentSalaryNumber)
+        // console.log(newSalary, currentSalaryNumber)
 
         if (newSalaryNumber > currentSalaryNumber) {
             axiosSecure.put(`/users/${selectedEmployee._id}`, { newSalary: newSalaryNumber, currentSalary: currentSalaryNumber })

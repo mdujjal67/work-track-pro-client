@@ -7,24 +7,19 @@ import useAxiosSecure from "../../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 
 const WorkSheet = () => {
-
     const [startDate, setStartDate] = useState(new Date());
-
     const { user } = useContext(AuthContext);
     const { email, designation } = user;
 
-
     const axiosSecure = useAxiosSecure();
 
-    const {refetch ,data: works = [] } = useQuery({
+    const { refetch, data: works = [] } = useQuery({
         queryKey: ['users', email],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/workSheet/${email}`)
-            return res.data
+            const res = await axiosSecure.get(`/workSheet/${email}`);
+            return res.data;
         }
     });
-
-
 
     const handleContactedUser = (event) => {
         event.preventDefault();
@@ -34,41 +29,46 @@ const WorkSheet = () => {
         const date = form.date.value;
         const name = user.displayName;
 
-        const workSheet = { taskName, hoursWorked, date, email, designation, name };
-        console.log(workSheet);
+        if (taskName === "Select Your Task") {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Please select a task before submitting.',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+            });
+            return;
+        }
 
-        // send works data to the server 
-        fetch('http://localhost:9000/workSheet', {
+        const workSheet = { taskName, hoursWorked, date, email, designation, name };
+
+        // Send works data to the server 
+        fetch('https://work-track-pro-server.vercel.app/workSheet', {
             method: 'POST',
             headers: {
-                'content-type': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(workSheet)
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Added to WorkSheet!',
-                        // text: 'Added!',
                         icon: 'success',
                         confirmButtonText: 'Success',
                         timer: 1500
                     });
                     form.reset();
-                    refetch()
+                    refetch();
                 }
-            })
-
-    }
+            });
+    };
 
     return (
         <div className="container mx-auto">
             <h1 className="text-3xl mt-8 font-bold">Your Work-Sheet:</h1>
             <div className="overflow-x-auto my-10">
                 <table className="table">
-                    {/* head */}
                     <thead>
                         <tr className="bg-base-300">
                             <th></th>
@@ -78,57 +78,50 @@ const WorkSheet = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            works.map((work, index) => <tr key={work._id} className="bg-base-100">
+                        {works.map((work, index) => (
+                            <tr key={work._id} className="bg-base-100">
                                 <th>{index + 1}</th>
                                 <td>{work.taskName}</td>
                                 <td>{work.hoursWorked}</td>
                                 <td>{work.date}</td>
-                            </tr>)
-                        }
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
             </div>
 
-            {/* This part is for Form section */}
             <h2 className="text-2xl font-bold mb-5">Submit Your Works:</h2>
-            <div className="">
+            <div>
                 <form onSubmit={handleContactedUser} className="lg:flex lg:gap-3 mb-20">
-                    {/* This is for Tasks field */}
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Your Tasks</span>
                         </label>
-                        <select name="taskName" required className="select select-bordered focus:ring focus:ring-blue-500 focus:border-blue-500 active:border-blue-500" >
-                            <option disabled selected>Select Your Task</option>
+                        <select name="taskName" required className="select select-bordered focus:ring focus:ring-blue-500 focus:border-blue-500 active:border-blue-500">
+                            <option value="">Select Your Task</option>
                             <option value="Sales">Sales</option>
                             <option value="Content">Content</option>
                             <option value="Support">Support</option>
                             <option value="Paper-Work">Paper-Work</option>
                         </select>
-                        {/* {errors.role && <span className="text-red-500">Role is required</span>} */}
                     </div>
 
-                    {/* This is for hour worked field*/}
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Hours Worked</span>
                         </label>
                         <input type="number" name="hoursWorked" required placeholder="Hours Worked" className="input input-bordered focus:ring focus:ring-blue-500 focus:border-blue-500 active:border-blue-500" />
-                        {/* {errors.bankAccountNumber && <span className="text-red-500">Bank Account Number is required</span>} */}
                     </div>
 
-                    {/* This is for date field*/}
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">Date</span>
                         </label>
                         <DatePicker name="date" className="border border-gray-300 py-3 rounded-lg pl-5 focus:ring focus:ring-blue-500 focus:border-blue-500 active:border-blue-500" selected={startDate} onChange={(date) => setStartDate(date)} required />
-                        {/* {errors.salary && <span className="text-red-500">Salary is required</span>} */}
                     </div>
 
                     <div className="form-control mt-[35px]">
-                        <input type="submit" className="btn bg-[#00a1ea] text-white w-full " value="Submit" />
+                        <input type="submit" className="btn bg-[#00a1ea] text-white w-full" value="Submit" />
                     </div>
                 </form>
             </div>

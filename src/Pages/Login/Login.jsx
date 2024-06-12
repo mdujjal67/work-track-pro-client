@@ -21,14 +21,14 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        // console.log(email, password);
 
         setLoginError('');
 
         signIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
 
                 Swal.fire({
                     position: "center",
@@ -41,7 +41,7 @@ const Login = () => {
                 navigate(from, { replace: true });
             })
             .catch((error) => {
-                console.log(error)
+                // console.log(error)
                 setLoginError('Wrong Email ID or Password! Please enter correct information.')
                 toast.error('Please try again!');
             });
