@@ -65,7 +65,7 @@ const WorkSheet = () => {
     };
 
     return (
-        <div className="container mx-auto">
+        <div className="container mx-auto p-4 lg:p-auto">
             <h1 className="text-3xl mt-8 font-bold">Your Work-Sheet:</h1>
             <div className="overflow-x-auto my-10">
                 <table className="table">
@@ -90,7 +90,7 @@ const WorkSheet = () => {
                 </table>
             </div>
 
-            <h2 className="text-2xl font-bold mb-5">Submit Your Works:</h2>
+            <h2 className="text-2xl font-bold mb-5 ">Submit Your Works:</h2>
             <div>
                 <form onSubmit={handleContactedUser} className="lg:flex lg:gap-3 mb-20">
                     <div className="form-control">

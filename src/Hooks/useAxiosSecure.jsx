@@ -5,11 +5,11 @@ import { AuthContext } from "../Provider/AuthProvider";
 
 
 const axiosSecure = axios.create({
-    // baseURL: 'https://work-track-pro-server.vercel.app',
-    baseURL: 'http://localhost:9000',
-    // headers:{
-    //   "Content-Type" :"application/json"
-    //   }
+    baseURL: 'https://work-track-pro-server.vercel.app',
+    // baseURL: 'http://localhost:9000',
+    headers:{
+      "Content-Type" :"application/json"
+      }
 })
 
 const useAxiosSecure = () => {

@@ -136,7 +136,7 @@ const AllEmployee = () => {
                                     <td>{employee.name}</td>
                                     <td>{employee.designation}</td>
                                     <td>
-                                        <p>{employee.salary}</p>
+                                        <p>$ {employee.salary}</p>
                                         <button onClick={() => openSalaryModal(employee)} className="btn btn-ghost btn-xs text-white lg:text-[12px] text-[10px] bg-[#00a1ea] mt-2">Adjust</button>
                                     </td>
                                     <td>
@@ -175,7 +175,7 @@ const AllEmployee = () => {
                             <div className="card-body">
                                 <h5 className="card-title text-lg font-semibold">{employee.name}</h5>
                                 <p className="card-text">Designation: {employee.designation}</p>
-                                <p className="card- my-3">Salary: {employee.salary}</p>
+                                <p className="card- my-3">Salary:$ {employee.salary}</p>
                                 <div className="card-actions justify-between">
                                     {employee?.role === 'HR' ? (
                                         <span className="text-green-500">Already HR</span>

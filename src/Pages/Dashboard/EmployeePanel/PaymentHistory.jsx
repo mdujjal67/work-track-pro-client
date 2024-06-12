@@ -34,18 +34,18 @@ const PaymentHistory = () => {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Transaction ID</th>
-                        <th>Amount</th>
-                        <th>Month</th>
+                        <th className='px-2'>Transaction ID</th>
+                        <th className='px-2'>Amount</th>
+                        <th className='px-2'>Month</th>
                     </tr>
                 </thead>
                 <tbody>
                     {reversedPayments.map((payment, index) => (
                         <tr key={index}>
                             <td>{index+1}</td>
-                            <td>{payment.transactionId}</td>
-                            <td>$ {payment.salary}</td>
-                            <td>{payment.month}</td>
+                            <td className='px-2'>{payment.transactionId}</td>
+                            <td className='px-2'>$ {payment.salary}</td>
+                            <td className='px-2'>{payment.month}</td>
                         </tr>
                     ))}
                 </tbody>

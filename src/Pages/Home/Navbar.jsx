@@ -74,15 +74,15 @@ const Navbar = () => {
                     <div className=" dropdown dropdown-end z-10">
                         <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar bg-gray-200">
                             <div className="w-10 rounded-full">
-                                <img referrerPolicy="no-referrer" src={user?.photoURL} alt="user" />
+                                <img src={user?.photoURL} alt="user" />
                             </div>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-56">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-200 rounded-box w-56">
                             <Link to="/">
                                 <li className="pb-2">
                                     <button className="justify-between py-1 hover:bg-[#00a1ea] rounded-lg text-gray-700 gray-on-dark-mode hover:text-gray-100">
                                         Profile
-                                        <span className=" text-[10px]">({user.email})</span>
+                                        <span className=" text-[10px]">({user?.email})</span>
                                     </button>
                                 </li>
                             </Link>

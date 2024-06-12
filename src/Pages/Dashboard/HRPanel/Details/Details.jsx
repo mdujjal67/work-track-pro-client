@@ -43,7 +43,7 @@ const Details = () => {
     // console.log(employee)
 
     if (!employee) {
-        return <div className="mt-20 lg:mt-60 h-screen">
+        return <div className="mt-20 lg:mt-60 h-screen p-4">
             <h2 className="text-2xl font-semibold text-center">No salary has been processed for this employee.</h2>
             <p className="text-center">Please initiate <Link to='/dashboard/employee-list' className="text-blue-500 hover:underline">payment</Link> to view salary details.</p>
         </div>
@@ -77,7 +77,7 @@ const Details = () => {
                         <th className="px-2 text-[12px]"></th>
                         <th className="px-2 text-[12px]">Employee Name</th>
                         <th className="px-2 text-[12px]">Employee Designation</th>
-                        <th className="px-2 text-[12px]">Employee Salary</th>
+                        {/* <th className="px-2 text-[12px]">Employee Salary</th> */}
 
                     </tr>
                 </thead>
@@ -94,7 +94,7 @@ const Details = () => {
                         </td>
                         <td className="px-2 text-[12px]">{employee.name}</td>
                         <td className="px-2 text-[12px]">{employee.designation}</td>
-                        <td className="px-2 text-[12px]">$ {employee.salary}</td>
+                        {/* <td className="px-2 text-[12px]">$ {employee.salary}</td> */}
                     </tr>
                 </tbody>
             </table>

@@ -27,7 +27,7 @@ const Login = () => {
 
         signIn(email, password)
             .then(result => {
-                const user = result.user;
+                result.user;
                 // console.log(user);
 
                 Swal.fire({
@@ -37,32 +37,22 @@ const Login = () => {
                     showConfirmButton: false,
                     timer: 2000
                 });
+                navigate('/')
 
+                // Reset form fields
+                form.reset();
+                setLoginError('');
                 navigate(from, { replace: true });
             })
             .catch((error) => {
-                // console.log(error)
+                
                 setLoginError('Wrong Email ID or Password! Please enter correct information.')
-                toast.error('Please try again!');
+                toast.error('Please try again!', error)
+                // navigate('/');
+                form.reset();
+                setLoginError('');
             });
     };
-
-    // const [disabled, setDisabled] = useState(true)
-    // // load captcha auto after click load-captcha
-    // useEffect(() => {
-    //     loadCaptchaEnginge(6);
-    // }, []);
-
-    // const handleValidateCaptcha = (event) => {
-    //     const user_captcha_value = event.target.value;
-    //     if (validateCaptcha(user_captcha_value)) {
-    //         setDisabled(false);
-    //     }
-
-    //     else {
-    //         alert('Captcha Does Not Match');
-    //     }
-    // };
 
 
 

@@ -16,7 +16,8 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
-    const axiosPublic = useAxiosPublic()
+    const axiosPublic = useAxiosPublic();
+    
 
 
     // create user function
@@ -31,21 +32,31 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         try {
             // Check user status before signing in
-            const statusRes = await axiosPublic.get(`/users/status/${email}`);
-            if (statusRes.data.status === 'Fired') {
+            const employeeStatus = await axiosPublic.get(`/users/status/${email}`);
+            // console.log(employeeStatus)
+            if (employeeStatus.data.status === 'Fired') {
                 Swal.fire('Error!', 'You have been fired from this company and cannot log in any more!', 'error');
                 setLoading(false);
                 return;
             }
 
-            await signInWithEmailAndPassword(auth, email, password);
+            else {
+                await signInWithEmailAndPassword(auth, email, password);
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Login successful!",
+                    showConfirmButton: false,
+                    timer: 2000
+                });
+            }
         }
         catch (error) {
             setLoading(false);
             if (error.message !== 'User has been fired') {
                 Swal.fire('Error!', error.message, 'error');
             }
-            throw error;
+            return;
         }
     };
 
@@ -104,13 +115,15 @@ const AuthProvider = ({ children }) => {
                     .then(res => {
                         if (res.data.token) {
                             localStorage.setItem('access-token', res.data.token);
+                            setLoading(false);
                         }
                     })
             }
             else {
                 localStorage.removeItem('access-token');
+                setLoading(false);
             }
-            setLoading(false);
+            
         });
         return () => {
             return unSubscribe;
