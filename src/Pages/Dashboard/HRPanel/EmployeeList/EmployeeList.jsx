@@ -59,7 +59,18 @@ const EmployeeList = () => {
 
     const openPayModal = employee => {
         setSelectedEmployee(employee);
-        setIsModalOpen(true);
+
+        // Check if the employee has already been paid for the selected month and year
+        const monthYear = `${month}-${year}`;
+        if (paidMonths[employee._id] && paidMonths[employee._id].includes(monthYear)) {
+            Swal.fire({
+                icon: "error",
+                title: `Payment Error`,
+                text: `Employee ${employee.name} has already been paid for the month of ${monthYear}`,
+            });
+        } else {
+            setIsModalOpen(true);
+        }
     };
 
     const handlePaySuccess = (monthYear) => {
