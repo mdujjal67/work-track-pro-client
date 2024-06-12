@@ -9,7 +9,7 @@ Welcome to WorkTrackPro, your comprehensive workforce management solution! Here,
 
 ## Live Site URL
 
-[WorkTrackPro Website](https://worktrackpro-67.web.app///)
+[WorkTrackPro Website](https://worktrackpro-67.web.app//)
 
 ## Features and Characteristics
 

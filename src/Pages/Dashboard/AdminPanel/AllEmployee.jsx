@@ -85,7 +85,7 @@ const AllEmployee = () => {
         // console.log(newSalary, currentSalaryNumber)
 
         if (newSalaryNumber > currentSalaryNumber) {
-            axiosSecure.put(`/users/${selectedEmployee._id}`, { newSalary: newSalaryNumber, currentSalary: currentSalaryNumber })
+            axiosSecure.put(`/users/salary/${selectedEmployee._id}`, { newSalary: newSalaryNumber, currentSalary: currentSalaryNumber })
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     refetch();
@@ -126,7 +126,7 @@ const AllEmployee = () => {
                                 <th>Designation</th>
                                 <th>Salary</th>
                                 <th>Make HR</th>
-                                <th>Fire</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody className="text-[12px] lg:text-[16px]">
@@ -157,7 +157,7 @@ const AllEmployee = () => {
                                                 onClick={() => handleFireEmployee(employee)}
                                                 className="btn btn-ghost btn-sm bg-red-500"
                                             >
-                                                <MdDangerous className="text-white text-xl" />
+                                                <button className="text-white text-[16px]">Fire</button>
                                             </button>
                                         )}
                                     </th>
