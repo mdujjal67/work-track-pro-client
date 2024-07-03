@@ -34,3 +34,18 @@ Welcome to WorkTrackPro, your comprehensive workforce management solution! Here,
 - **React-Hot-Toast**
 - **React-Icons**
 - **Recharts**
+
+
+## Running WorkTrackPro Locally
+
+To run WorkTrackPro on your local machine, follow these steps:
+
+   - Clone the repository to your local machine.
+   - Navigate into the project directory.
+   - Install dependencies using npm.
+   - Set up environment variables required for the project.
+   - Start the server to run the backend.
+   - Run the frontend to start the user interface.
+   - Access WorkTrackPro through your web browser at localhost.
+
+Make sure you have Node.js, npm, and MongoDB installed on your system before proceeding with these steps.
