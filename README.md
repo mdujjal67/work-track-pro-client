@@ -35,7 +35,7 @@ Welcome to WorkTrackPro, your comprehensive workforce management solution! Here,
 - **MondoDB**
 
 
-- ## NPM packages:
+## NPM packages:
 - **Swipper-Slick**
 - **React-Date-Picker**
 - **React-Stripe-js**
