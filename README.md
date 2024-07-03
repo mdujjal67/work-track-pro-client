@@ -3,7 +3,7 @@
 ### Admin Email: mdujjal@gmail.com
 ### Admin Password: Mdujjal@123
 
-# WorkTrackPro Website
+# WorkTrackPro Website Overview
 
 Welcome to WorkTrackPro, your comprehensive workforce management solution! Here, employers and employees can seamlessly track work hours, manage projects, and handle payroll, all in one place. Enjoy real-time collaboration, detailed performance analytics, and customized insights to optimize your workflow and enhance productivity. Join us and transform the way you manage work and track progress!
 
@@ -23,6 +23,17 @@ Welcome to WorkTrackPro, your comprehensive workforce management solution! Here,
 - **Integration Capabilities**: Integrate with popular productivity tools and platforms to enhance workflow efficiency.
 - **Customization Options**: Tailor WorkTrackPro to fit your organization's unique needs with customizable dashboards, fields, and workflows.
 - **Security and Privacy**: Ensure data security and privacy with robust encryption, access controls, and compliance certifications.
+
+
+## Technologies Used:
+- **HTML**
+- **CSS**
+- **JavaScript**
+- **React.js**
+- **Node.js**
+- **Express.js**
+- **MondoDB**
+
 
 - ## NPM packages:
 - **Swipper-Slick**
